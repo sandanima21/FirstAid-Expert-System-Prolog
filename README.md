@@ -1,98 +1,59 @@
-# First Aid Expert System — Lecturer README
+# First Aid Expert System - Guide
 
 ## Run
 
-Install **SWI-Prolog** from the official website:
+Install SWI-Prolog, then open `first_aid_expert_system.pl`. If the `.pl` file is associated with SWI-Prolog, double-clicking it starts the CLI.
 
-https://www.swi-prolog.org/download/stable
-
-Open the project folder and run:
+If double-click does not launch the application, open SWI-Prolog in the project folder and run:
 
 ```text
-swipl first_aid_expert_system.pl
-```
-
-Or from the SWI-Prolog prompt:
-
-```prolog
 ?- consult('first_aid_expert_system.pl').
 ?- check_system.
 ?- start.
 ```
 
-## Final system status
+## Modes
 
-- **Domain:** First Aid
-- **Scenarios:** Burn / Cut or bleeding / Fall / Adult choking
-- **Knowledge facts:** 34
-- **Domain rules:** 28
-- **Goal-rule groups:** 4
-- **Interface:** Color-enabled CLI
-- **Quick Advice:** Full assessment and all applicable advice — **Forward Chaining / Data-Driven**
-- **Targeted Help:** Urgent check only with early stopping — **Backward Chaining / Goal-Driven**
+**Quick Advice**: full assessment and full applicable first-aid recommendations. Academic mapping: forward chaining.
 
-## Demonstration
+**Targeted Help**: urgent-care check only. It starts from the urgent-help goal, asks only the required warning-sign questions, and stops when the goal is proved. Academic mapping: backward chaining.
 
-Use the **same accident** in both modes.
+## System contents
 
-### Quick Advice
-Select `1`, choose an accident, and answer the full scenario questions. The system then displays all applicable recommendations.
-
-### Targeted Help
-Select `2`, choose the same accident, and answer only the urgent-warning questions. When an urgent condition is confirmed, the system stops immediately and shows the urgent decision.
-
-For example, for a cut:
-
-```text
-Unresponsive/not breathing: n
-Heavy/uncontrolled bleeding: y
-```
-
-The urgent result should appear immediately; the remaining targeted questions are skipped.
-
-## System check
-
-Run:
-
-```prolog
-?- check_system.
-```
-
-Expected:
-
-```text
-Accident categories : 4
-Knowledge facts     : 34
-Domain rules        : 28
-Goal rule groups    : 4
-Assignment threshold : PASS
-```
+- 4 accident categories
+- 34 knowledge facts
+- 28 source-based domain rules
+- 4 urgent-help goal groups
+- Colour CLI using `library(ansi_term)`
 
 ## References
 
-1. NHS — Burns and scalds  
-   https://www.nhs.uk/conditions/burns-and-scalds/
-2. NHS — Cuts and grazes  
-   https://www.nhs.uk/conditions/cuts-and-grazes/
-3. North East Ambulance Service (NHS) — Choking  
-   https://www.neas.nhs.uk/community-learning/emergency-advice/choking
-4. American Red Cross — Head, Neck, and Spinal Injury  
-   https://production.redcross.org/take-a-class/learn-fa-head-neck-spinal-injury.html
-5. American Red Cross — First Aid/CPR/AED Participant's Manual  
-   https://www.redcross.org/content/dam/redcross/training-services/no-index/First%20Aid-CPR-AED-Participant%27s-Manual.pdf
-6. American Red Cross — First Aid Steps  
-   https://production.redcross.org/take-a-class/first-aid/performing-first-aid/first-aid-steps
-7. St John Ambulance — Spinal Injury First Aid  
-   https://www.sja.org.uk/first-aid-advice/spinal-injury/
-8. East of England Ambulance Service — Cuts and grazes  
-   https://www.eastamb.nhs.uk/your-service/emergency-advice/cuts-and-grazes
-9. 1990 Suwa Seriya Foundation — FAQ  
-   https://www.1990.lk/faq/
-10. SWI-Prolog — official documentation / ANSI terminal support  
-    https://www.swi-prolog.org/pldoc/man?section=ansiterm
+[S1] NHS - Burns and scalds  
+https://www.nhs.uk/conditions/burns-and-scalds/
 
-No domain expert was consulted. The medical knowledge was represented from the cited sources.
+[S2] NHS - Cuts and grazes  
+https://www.nhs.uk/conditions/cuts-and-grazes/
 
-## Safety
+[S3] North East Ambulance Service (NHS) - Choking  
+https://www.neas.nhs.uk/community-learning/emergency-advice/choking
 
-Educational coursework prototype only. It does not replace first-aid/CPR training, professional medical assessment, or emergency-dispatcher instructions.
+[S4] American Red Cross - Head, Neck, and Spinal Injury  
+https://production.redcross.org/take-a-class/learn-fa-head-neck-spinal-injury.html
+
+[S5] American Red Cross - First Aid/CPR/AED Participant's Manual  
+https://www.redcross.org/content/dam/redcross/training-services/no-index/First%20Aid-CPR-AED-Participant%27s-Manual.pdf
+
+[S6] American Red Cross - First Aid Steps  
+https://production.redcross.org/take-a-class/first-aid/performing-first-aid/first-aid-steps
+
+[S7] St John Ambulance - Spinal Injury First Aid  
+https://www.sja.org.uk/first-aid-advice/spinal-injury/
+
+[S8] East of England Ambulance Service - Cuts and grazes  
+https://www.eastamb.nhs.uk/your-service/emergency-advice/cuts-and-grazes
+
+[S9] 1990 Suwa Seriya Foundation  
+https://www.1990.lk/faq/
+
+[S10] SWI-Prolog - library(ansi_term)  
+https://www.swi-prolog.org/pldoc/man?section=ansiterm
